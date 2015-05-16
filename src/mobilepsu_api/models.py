@@ -21,8 +21,8 @@ class Question(models.Model):
     test = models.ForeignKey(Test)
     statement = models.CharField(max_length = 500)
     
-class Alternative(models.Model):
-    ALTERNATIVES = (
+class Choice(models.Model):
+    CHOICES = (
         (0, 'A'),
         (1, 'B'),
         (2, 'C'),
@@ -31,15 +31,15 @@ class Alternative(models.Model):
     )
     question = models.ForeignKey(Question)
     description = models.CharField(max_length = 500)
-    index = models.SmallIntegerField(choices = ALTERNATIVES)
+    index = models.SmallIntegerField(choices = CHOICES)
 
 class CorrectAnswer(models.Model):
     question = models.ForeignKey(Question)
-    alternative = models.ForeignKey(Alternative)
+    choice = models.ForeignKey(Choice)
 
 class User(models.Model):
     username = models.CharField(max_length = 200)
 
 class UserAnswer(models.Model):
     user = models.ForeignKey(User)
-    alternative = models.ForeignKey(Alternative)
+    choice = models.ForeignKey(Choice)
