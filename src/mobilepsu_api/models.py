@@ -22,6 +22,8 @@ CHOICES = (
 
 class Field(models.Model):
     name = models.SmallIntegerField(choices = FIELDS)
+    def __str__(self):
+            return '%s' % (self.get_name_display())
 
 class Question(models.Model):
     field = models.ForeignKey(Field)
