@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from mobilepsu_api.models import Field, Question
+from mobilepsu_api.models import Field, Question, Test
 
 class FieldSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +10,8 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ('id', 'field', 'statement', 'choice_a', 'choice_b', 'choice_c', 'choice_d', 'choice_e', 'correct_answer')
+        
+class TestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Test
+        fields = ('id', 'field', 'questions')

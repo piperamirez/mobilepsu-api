@@ -34,6 +34,8 @@ class Question(models.Model):
     choice_d = models.CharField(max_length = 100)
     choice_e = models.CharField(max_length = 100)
     correct_answer = models.SmallIntegerField(choices = CHOICES)
+    def __str__(self):
+            return '%s: %s' % (self.field, self.statement)
     
 class Test(models.Model):
     field = models.ForeignKey(Field)
