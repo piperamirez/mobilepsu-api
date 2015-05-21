@@ -5,6 +5,8 @@ from mobilepsu_api import views
 urlpatterns = [
     url(r'^fields/$', views.FieldList.as_view()),
     url(r'^fields/(?P<pk>[0-9]+)/$', views.FieldDetail.as_view()),
+    url(r'^topics/$', views.TopicList.as_view()),
+    url(r'^topics/(?P<pk>[0-9]+)/$', views.TopicDetail.as_view()),
     url(r'^questions/$', views.QuestionList.as_view()),
     url(r'^questions/(?P<pk>[0-9]+)/$', views.QuestionDetail.as_view()),
     url(r'^tests/$', views.TestList.as_view()),
